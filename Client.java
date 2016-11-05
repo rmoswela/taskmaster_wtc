@@ -15,17 +15,20 @@ class Client
 		{
 			System.exit(0);/*exit client program*/
 		}
-		/*write to outputstream*/
-		outToServer.writeBytes(command + '\n');
-		/*read from the outputstream*/
-		sent = inFromServer.nextLine();
-
-
-		if (command.toLowerCase().equals("status"))
+		else
 		{
-			System.out.println("client Process status: " + sent);
+			/*write to outputstream*/
+			outToServer.writeBytes(command + '\n');
+			/*read from the outputstream*/
+			sent = inFromServer.nextLine();
+
+
+		//if (command.toLowerCase().equals("status"))
+		//{
+		//	System.out.println("client Process status: " + sent);
+		//}
+			System.out.println("From Server: " + sent);
 		}
-		System.out.println("From Server: " + sent);
 		CommandPrompt(inFromUser, inFromServer, outToServer);
 	}
 	public static void main(String args[]) throws Exception
